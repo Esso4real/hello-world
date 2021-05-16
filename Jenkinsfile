@@ -25,7 +25,7 @@ pipeline {
             steps {
                 input 'Does the staging environment look OK?'
                 milestone(1)
-                 deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://52.43.84.55/:8080/')], contextPath: '/', war: '**/*.war'
+                 deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://52.43.84.55/:8080')], contextPath: '/', war: '**/*.war'
             }
         }
                 

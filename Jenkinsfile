@@ -5,6 +5,8 @@ pipeline {
             steps {
                 echo 'Running build automation'
                 sh 'mvn -f pom.xml clean package'
+                sh 'make check || true' 
+                junit '**/target/*.xml' 
                 archiveArtifacts artifacts: '**/*.war', followSymlinks: false
             }
         }

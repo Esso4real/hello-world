@@ -11,24 +11,13 @@ pipeline {
         }
         
         
-        stage('DeployToStaging') {
-            when {
-                branch 'master'
-            }
+        stage('Build Docker Image') {
+           
             steps {
-                deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://54.245.201.199:8080/')], contextPath: '/', war: '**/*.war'
+                sh "pwd"
+                sh "ls -a"
+                sh "docker build . -t tomcatsamplewapp:${env.BUILD_ID}"
             }
         }
-        stage('DeployToProduction') {
-            when {
-                branch 'master'
-            }
-            steps {
-                input 'Does the staging environment look OK?'
-                milestone(1)
-                 deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://52.43.84.55:8080/')], contextPath: '/', war: '**/*.war'
-            }
-        }
-                
-    }
+    }    
 }

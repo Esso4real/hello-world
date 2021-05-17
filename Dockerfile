@@ -4,7 +4,7 @@ MAINTAINER Ernest Awangya
 
 ADD **/*.war /opt/apache-tomcat-8.5.66/webapps
 
-RUN cp -r /usr/local/tomcat/webapps.dist/* /usr/local/tomcat/webapps 
+RUN cp -r /usr/local/tomcat/webapps.dist/* /opt/apache-tomcat-8.5.66/webapps 
 
 EXPOSE 8080
 

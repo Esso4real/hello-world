@@ -1,17 +1,17 @@
 pipeline {
     agent any
-   /* tools {
-    maven "maven" */
+    tools {
+    maven "maven" 
     }
     stages {
-        /* stage('Build Jar') {
+       stage('Build Jar') {
             steps {
                 script {
                     echo "Building the jar file"
                     sh "mvn -f pom.xml clean package"
                 }
             }
-        } */
+        } 
         
         stage('Build Docker Image') {
             steps {

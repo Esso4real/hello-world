@@ -38,7 +38,7 @@ pipeline {
                             sh "docker run -d -p 8080:8080 esso4real/myhtmlapp:tek-v1.0"
                         
                         }
-                    
+                    }
                 }
             }
         }
